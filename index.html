@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagia Cleaners</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+            <img src="hambar/logo-1.jpg" alt="Logo"></a>
+            <span class="company-name">PT Hagia Global Servis</span>
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="pemesanan.html">Pemesanan</a></li>
+            </ul>
+        </nav>
+    
+        <!-- Tombol Hamburger -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    
+        <!-- Dropdown Menu untuk Mobile -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="pemesanan.html">Pemesanan</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Tombol WhatsApp -->
+<a href="https://wa.me/message/JJ7VEE7T7ERYC1" class="whatsapp-btn" target="_blank">
+    <img src="hambar/WhatsApp-logo-JPG-green-large-size-removebg-preview (1).png" alt="WhatsApp" />
+    <!-- Bubble Chat -->
+    <div class="whatsapp-bubble">Hubungi kami di sini</div>
+</a>
+
+    <!-- SLIDER -->
+    <section class="slider">
+        <button class="prev">&#10094;</button>
+        
+        <div class="slider-container">
+            <img src="hambar/Untitled design (28).png" class="active">
+            <img src="hambar/Untitled design (29).png">
+            <img src="hambar/Untitled design (28).png">
+        </div>
+        
+        <button class="next">&#10095;</button>
+
+        <!-- Indikator titik tiga -->
+        <div class="dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+    </section>
+
+    <!-- DESKRIPSI -->
+    <section class="description">
+        <h1 class="hagia-cleaners">
+            <span class="hagia">Hagia</span> 
+            <span class="cleaners">Cleaners</span>
+        </h1>
+        <p>Kami menghadirkan layanan jasa kebersihan terbaik dengan memastikan tenaga pembersih yang handal dan profesional di bidangnya.</p>
+        <br>
+        <!-- Tombol Pesan Sekarang dipindahkan ke sini -->
+        <button class="contact-btn">Pesan Sekarang</button>
+    </section>
+
+    <!-- HASIL PEKERJAAN -->
+    <section class="work">
+        <h2>Hasil Pekerjaan Kami</h2>
+        <p>Berikut adalah beberapa contoh pekerjaan yang telah kami lakukan</p>
+        <div class="work-gallery">
+            <img src="hambar/img-1.jpg" alt="Pekerjaan 1">
+            <img src="hambar/img-1.jpg" alt="Pekerjaan 2">
+            <img src="hambar/img-1.jpg" alt="Pekerjaan 3">
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="advantages">
+        <div class="advantages-content">
+            <div class="advantages-text">
+                <h2>Keunggulan Kami</h2>
+                <ul>
+                    <li>
+                        <img src="hambar/Console.png" alt="Layanan">
+                        Layanan Kebersihan yang Lengkap
+                    </li>
+                    <li>
+                        <img src="hambar/Dashboard Layout_.png" alt="Teknisi">
+                        Teknisi Berpengalaman
+                    </li>
+                    <li>
+                        <img src="hambar/Key.png" alt="Peralatan">
+                        Peralatan Profesional
+                    </li>
+                </ul>
+            </div>
+            <div class="advantages-image">
+                <img src="hambar/img-1.jpg" alt="Tim Kami">
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMUKAN KAMI -->
+    <section class="contact">
+        <h2 class="contact-title">Temukan Kami</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <img class="contact-icon" src="hambar/Phone_.png" alt="Phone Icon">
+                <p class="contact-label">Phone / WA</p>
+                <p class="contact-text">+62 811-8080-128</p>
+            </div>
+            <div class="contact-item">
+                <img class="contact-icon" src="hambar/Email.png" alt="Email Icon">
+                <p class="contact-label">E-mail</p>
+                <p class="contact-text">admin@hagiacleaners.com</p>
+            </div>
+            <div class="contact-item">
+                <img class="contact-icon" src="hambar/Location_.png" alt="Location Icon">
+                <p class="contact-label">Alamat</p>
+                <p class="contact-text">Hagia Office, Pasar Segar Graha Raya <br> Blok RCI no 32 Tangerang Selatan, Indonesia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>© 2023. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><img src="hambar/facebook-blue 1.png" alt="Facebook"></a>
+                    <a href="#"><img src="hambar/instagram-blue 1.png" alt="Instagram"></a>
+                    <a href="#"><img src="hambar/twitter-blue 1.png" alt="Twitter"></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-column">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="layanan.html">Layanan</a></li>
+                        <li><a href="pemesanan.html">Pemesanan</a></li>
+                    </ul>
+                    <br> <!-- Tambahkan jarak antar store dan catalog -->
+                    <h4>Catalog</h4>
+                    <ul>
+                        <li><a href="#">First Link</a></li>
+                        <li><a href="#">Second Link</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Store</h4>
+                    <ul>
+                        <li><a href="index.html">First Link</a></li>
+                        <li><a href="index.html">Second Link</a></li>
+                        <li><a href="index.html">Third Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1016 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+    font-weight: 400; /* Regular */
+    color: #333;
+}
+h1, h2, h3, .company-name, .whatsapp-btn, .whatsapp-bubble {
+    font-weight: 500; /* Semi-Bold */
+}
+/* Tambahan - Untuk subjudul atau elemen lainnya */
+h1 {
+    font-weight: 600; /* Lebih tebal untuk h1 jika diinginkan */
+}
+
+/* Jika Anda ingin lebih spesifik */
+h2, h3 {
+    font-weight: 500; /* Semi-Bold */
+}
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between; /* Menyusun logo dan menu */
+    align-items: center;
+    padding: 20px 50px;
+    background: #fff;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak antara logo dan nama */
+}
+
+.logo img {
+    height: 50px; /* Ukuran logo */
+    width: auto;
+}
+
+.company-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0077C8; /* Warna sesuai logo */
+}
+
+/* Nav Menu */
+nav {
+    display: flex;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px; /* Menambahkan jarak antar menu */
+}
+
+nav ul li {
+    font-weight: bold;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Warna hover */
+}
+
+/* Tombol Hamburger (untuk tampilan mobile) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 4px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Menampilkan menu hamburger saat aktif */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu Dropdown untuk Mobile */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.mobile-menu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Efek hover untuk menu item */
+.mobile-menu ul li:hover {
+    background-color: #6a72b5;
+}
+
+/* Efek hover pada menu item untuk desktop */
+
+
+/* Responsif: Menyembunyikan menu biasa dan menampilkan tombol hamburger */
+/* Responsif: Menyembunyikan menu biasa dan menampilkan tombol hamburger */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Membuat layout kolom pada mobile */
+        text-align: left; /* Menyusun logo dan teks ke kiri */
+        padding: 15px 20px; /* Mengurangi padding agar lebih kompak */
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        margin-left: -50px; /* Memberikan margin kiri pada logo agar lebih rata */
+    }
+
+    .company-name {
+        font-size: 18px; /* Menyesuaikan ukuran font agar lebih kecil di mobile */
+        font-weight: bold;
+        color: #0077C8;
+        margin-left: 10px; /* Memberikan sedikit jarak antara logo dan teks */
+    }
+
+    .logo img {
+        height: 40px; /* Mengurangi ukuran logo agar lebih pas di mobile */
+    }
+
+    nav ul {
+        display: none; /* Menyembunyikan menu di mobile */
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    /* Menampilkan hamburger menu */
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+
+/* SLIDER */
+.slider {
+    position: relative;
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    position: absolute;
+}
+
+.slider-container img.active {
+    opacity: 1;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(72, 174, 224);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.slider .prev {
+    left: 10px;
+}
+
+.slider .next {
+    right: 10px;
+}
+
+.slider button:hover {
+    background: rgb(70, 109, 226);
+}
+
+/* DOT NAVIGATION */
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background-color: #007bff;
+}
+
+/* DESKRIPSI */
+.description {
+    text-align: center;
+    padding: 40px 20px;
+}
+/* Tombol Pesan Sekarang - Perubahan untuk tampil lebih ringan dan dengan border di bagian description */
+.description .contact-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: 2px solid #007bff; /* Menambahkan border biru */
+    background: none; /* Menghapus background, membuat tombol transparan */
+    color: #007bff; /* Teks berwarna biru */
+    font-size: 16px;
+    font-weight: normal; /* Font lebih ringan */
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease; /* Efek transisi */
+}
+
+.contact-btn {
+    font-weight: 500; /* Semi-Bold */
+}
+/* Efek hover tombol */
+.description .contact-btn:hover {
+    background-color: #007bff; /* Warna latar belakang saat hover */
+    color: white; /* Teks menjadi putih saat hover */
+}
+
+
+.bold {
+    font-weight: bold;
+}
+
+.green {
+    color: #28a745;
+}
+
+/* HASIL PEKERJAAN */
+.work {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.work h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Mengurangi jarak antara judul dan deskripsi */
+}
+
+.work p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px; /* Memberikan jarak antara deskripsi dan galeri */
+}
+
+.work-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Menyesuaikan jarak antar gambar */
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.work-gallery img {
+    width: 30%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* KEUNGGULAN */
+.advantages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background: #fff;
+}
+
+.advantages-content {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Jarak antara teks dan gambar */
+    max-width: 1100px;
+    width: 100%;
+}
+
+.advantages-text {
+    flex: 1;
+    text-align: left;
+}
+
+.advantages-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.advantages-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages-text ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.advantages-text ul li img {
+    width: 30px; /* Ukuran ikon */
+    height: auto;
+    margin-right: 10px;
+}
+
+.advantages-image {
+    flex: 1;
+}
+
+.advantages-image img {
+    width: 100%;
+    max-width: 500px; /* Maksimal lebar gambar */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- TEMUKAN KAMI --- */
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff; /* Warna putih */
+}
+
+.contact-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 35px;
+}
+
+/* Kontainer flexbox untuk menyusun elemen */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px; /* Mengurangi jarak agar lebih rapat */
+    max-width: 800px; /* Membatasi lebar agar tidak terlalu melebar */
+    margin: 0 auto; /* Pusatkan kontainer */
+}
+
+/* Setiap item memiliki lebar tetap agar ukurannya seragam */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px; /* Menyamakan lebar semua item */
+}
+
+/* Menyesuaikan ukuran ikon dan spasi */
+.contact-item img {
+    width: 28px; /* Ukuran ikon */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Label kontak */
+.contact-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+/* Teks kontak */
+.contact-text {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* RESPONSIVE untuk tampilan mobile */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Mengubah tata letak menjadi vertikal */
+        gap: 20px; /* Mengurangi jarak antar elemen */
+        align-items: center; /* Pusatkan elemen */
+    }
+
+    .contact-item {
+        width: 100%; /* Lebar penuh agar lebih responsif */
+    }
+}
+
+
+
+
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #d6edf8; /* Warna biru muda */
+    padding: 30px 5%;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Bagian kiri footer (tidak diubah) */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-left p {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Ikon sosial media */
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: auto;
+}
+
+/* Bagian kanan footer */
+.footer-right {
+    display: flex;
+    justify-content: flex-start; /* Supaya sejajar seperti gambar */
+    gap: 80px; /* Sesuaikan dengan tampilan gambar */
+    align-items: flex-start;
+}
+
+/* Kolom dalam footer kanan */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Sama seperti gambar */
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #007bff;
+}
+
+
+
+
+
+/* TEKS HAGIA CLEANERS SESUAI WARNA LOGO */
+.hagia-cleaners {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.hagia-cleaners .hagia {
+    color: #0077C8; /* Warna biru sesuai logo */
+}
+
+.hagia-cleaners .cleaners {
+    color: #36A937; /* Warna hijau sesuai logo */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slider {
+        height: 300px;
+    }
+
+    .work-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work-gallery img {
+        width: 80%;
+        height: auto;
+    }
+
+    .advantages {
+        padding: 30px;
+    }
+
+    .advantages-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .advantages-text {
+        text-align: center;
+    }
+
+    .advantages-text ul {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .advantages-image img {
+        width: 80%;
+        height: auto;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .slider button {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+}
+
+/* Sembunyikan tombol hamburger di desktop */
+
+
+/* Tampilkan hamburger hanya di mobile */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Sembunyikan ikon silang secara default */
+.close-icon {
+    display: none;
+}
+
+/* Saat menu terbuka, sembunyikan ikon hamburger dan tampilkan ikon silang */
+
+
+/* Responsif untuk tampilan mobile */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px; /* Atur jarak antar kolom */
+        width: 100%;
+    }
+
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+/* Tambahkan jarak antara ikon sosial media dan menu footer */
+.social-icons {
+    margin-bottom: 50px; /* Sesuaikan nilai sesuai kebutuhan */
+}
+/* Tambahkan jarak antara Store dan Catalog */
+.footer-column h4:nth-of-type(2) {
+    margin-top: 15px; /* Sesuaikan dengan kebutuhan */
+}
+/* Style untuk tombol hamburger */
+.menu-toggle {
+    display: none; /* Default: disembunyikan */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1001; /* Pastikan muncul di atas menu */
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Saat menu aktif, ubah ikon hamburger menjadi silang (X) */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none; /* Akan diubah menjadi block dengan JavaScript */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Pastikan lebih tinggi dari elemen lain */
+}
+
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+/* Tampilkan tombol hamburger hanya di tampilan mobile */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none; /* Sembunyikan navbar biasa */
+    }
+
+    .mobile-menu.active {
+        display: flex !important;  /* Perbaikan utama */
+        flex-direction: column;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+/* Tombol WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+     /* Warna latar belakang hijau WhatsApp */
+    border-radius: 50%;
+    padding: 15px;
+    font-weight: 400; /* Regular */
+    z-index: 1000; /* Memastikan tombol berada di atas elemen lain */
+    transition: transform 0.3s ease; /* Efek transisi saat hover */
+}
+/* Bubble Chat */
+.whatsapp-bubble {
+    position: absolute;
+    top: -30px; /* Menempatkan bubble sedikit di atas ikon */
+    left: -120px; /* Menempatkan bubble di sebelah kiri ikon */
+    background-color: #25D366;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    opacity: 0; /* Mulai dengan opacity 0 */
+    transform: translateX(-20px); /* Bubble sedikit bergeser ke kiri */
+    pointer-events: none; /* Agar tidak mengganggu interaksi pengguna */
+    white-space: nowrap;
+    z-index: 500; /* Memastikan bubble di atas tombol */
+    animation: showBubble 5s ease-out infinite; /* Animasi berulang */
+}
+/* Animasi bubble chat muncul dan menghilang */
+@keyframes showBubble {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px); /* Bubble sedikit ke kiri */
+    }
+    25% {
+        opacity: 1;
+        transform: translateX(0); /* Bubble bergerak ke posisi normal */
+    }
+    75% {
+        opacity: 1; /* Bubble tetap terlihat */
+    }
+    100% {
+        opacity: 0; /* Bubble akan hilang */
+        transform: translateX(-20px); /* Bubble kembali ke posisi kiri */
+    }
+}
+.whatsapp-btn:hover {
+    transform: scale(1.1); /* Membesarkan tombol sedikit saat di-hover */
+}
+
+/* Ikon WhatsApp */
+.whatsapp-btn img {
+    width: 50px; /* Ukuran ikon */
+    height: auto;
+}
+
+/* Menampilkan Bubble Chat saat WhatsApp di-hover */
+/* Tentang Kami Section */
+.about {
+    padding: 40px 20px;
+    background-color: #f8f9fa; /* Warna latar belakang */
+    text-align: center; /* Agar teks di tengah */
+    max-width: 1200px; /* Batasi lebar konten */
+    margin: 0 auto; /* Pusatkan konten */
+}
+
+.about h1 {
+    font-size: 36px;
+    font-weight: 600; /* Semi-Bold */
+    color: #0077C8; /* Warna biru sesuai logo */
+    margin-bottom: 20px; /* Jarak antara judul dan teks */
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4a4b4b;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+
+
+.about-images {
+    display: flex;
+    justify-content: center; /* Pusatkan gambar di layar */
+    gap: 20px; /* Jarak antar gambar */
+    margin-top: 30px;
+}
+
+.about-image {
+    width: 300px; /* Ukuran gambar */
+    height: 300px; /* Ukuran gambar */
+    object-fit: cover; /* Menjaga gambar agar proporsional */
+    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan pada gambar */
+    transition: transform 0.3s ease; /* Efek hover */
+}
+
+.about-image:hover {
+    transform: scale(1.1); /* Efek zoom-in saat hover */
+}
+.about .whatsapp-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    background-color: #25D366;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.about .whatsapp-btn img {
+    width: 50px;
+    height: auto;
+}
+
+.about .whatsapp-bubble {
+    display: none;
+}
+
+/* Animasi Bubble Chat (Sama seperti yang sudah ada) */
+@keyframes showBubble {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    25% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+.about .whatsapp-bubble {
+    position: absolute;
+    top: -30px;
+    left: -120px;
+    background-color: #25D366;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(-20px);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 500;
+    animation: showBubble 5s ease-out infinite;
+}
+
+/* Tombol WhatsApp Hover Effect */
+.about .whatsapp-btn:hover {
+    transform: scale(1.1); /* Membesarkan tombol sedikit saat di-hover */
+}
+/* Responsif untuk tampilan mobile */
+@media screen and (max-width: 768px) {
+    .about-images {
+        flex-direction: column; /* Susun gambar secara vertikal */
+        align-items: center; /* Pusatkan gambar secara vertikal */
+        gap: 20px; /* Jarak antar gambar */
+    }
+
+    .about-image {
+        width: 250px; /* Ukuran gambar lebih kecil di mobile */
+        height: 250px; /* Ukuran gambar lebih kecil di mobile */
+    }
+}
+
+/* Gambar yang Bisa Diklik */
+.about-images a {
+    display: inline-block;
+    cursor: pointer; /* Menampilkan kursor tangan saat hover */
+    transition: transform 0.3s ease; /* Efek transisi saat hover */
+}
+
+/* Efek saat gambar di-hover */
+.about-images a:hover .about-image {
+    transform: scale(1.05); /* Gambar membesar sedikit saat di-hover */
+}
+/* Styling untuk bagian Layanan */
+.services {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #0077C8;
+    margin-bottom: 40px;
+}
+
+html, body {
+    overflow-x: hidden; /* Menghilangkan scroll horizontal */
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .slider {
+    height: auto;
+  }
+
+  .slider-container {
+    height: auto;
+    aspect-ratio: 16 / 9; /* atau 3/2 atau 4/3 sesuai selera */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slider-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    position: absolute; /* KEMBALIKAN ini! Penting untuk stack gambar */
+    top: 0;
+    left: 0;
+  }
+
+  .slider-container img.active {
+    opacity: 1;
+  }
+}

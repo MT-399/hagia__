@@ -1,0 +1,267 @@
+/* Menata layout layanan utama dengan dua bagian */
+.service-category {
+    display: flex;
+    justify-content: center; /* Menyusun elemen di tengah */
+    gap: 200px; /* Menambah jarak antar elemen */
+    margin-top: 150px; /* Menambah jarak lebih banyak agar bubble tidak menutupi judul */
+    position: relative;
+    flex-wrap: wrap; /* Agar elemen bisa terbungkus pada layar kecil */
+}
+
+
+/* Menambahkan Bubble di Tengah yang lebih besar */
+.service-category .center-bubble {
+    background-color: #699DF8; /* Warna biru untuk bubble tengah */
+    color: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 30px; /* Membuat bubble dengan sudut melengkung */
+    width: 700px; /* Memperbesar width agar mencakup dua bubble lainnya */
+    height: 350px; /* Memperbesar height agar mencakup dua bubble */
+    text-align: center;
+    position: absolute;
+    top: -130px; /* Menempatkan bubble lebih tinggi agar mencakup kedua bubble */
+    left: 50%; /* Menyusun bubble tengah dengan align tengah */
+    transform: translateX(-50%); /* Agar bubble tetap terpusat */
+    z-index: -1; /* Menempatkan bubble di belakang dua bubble lainnya */
+}
+
+.service-category .center-bubble p {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Garis pemisah vertikal antara Dry Cleaning dan Wet Cleaning */
+.service-category .divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 150px;
+    border-left: 3px solid #0077C8; /* Warna biru untuk pemisah */
+}
+
+/* Styling untuk masing-masing layanan (Dry Cleaning, Wet Cleaning) */
+.service-category .service-item {
+    background-color: #84E5FD; /* Warna hijau */
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px; /* Ukuran bulat */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+.service-item h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Gambar bintang di atas setiap layanan */
+/* Gambar bintang di atas setiap layanan */
+/* Menyaring penerapan ::before hanya pada .service-item */
+
+
+
+/* Gambar dalam layanan */
+.service-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 15px;
+}
+
+/* Menambahkan box-sizing ke seluruh elemen */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Responsif untuk tampilan mobile */
+/* Responsif untuk tampilan mobile */
+@media (max-width: 768px) {
+    .service-category {
+        flex-direction: column; /* Menyusun elemen secara vertikal pada layar kecil */
+        gap: 30px; /* Menambah jarak antar elemen */
+        margin-top: 200px; /* Menambah margin atas pada perangkat kecil */
+        align-items: center; /* Menyusun elemen agar terpusat */
+        width: 100%; /* Pastikan elemen tidak meluap keluar */
+      
+    }
+
+    .service-item {
+        width: 90%; /* Membuat lebar elemen lebih kecil agar pas di layar kecil */
+        height: auto; /* Mengatur tinggi sesuai konten */
+        margin: 0 auto; /* Menyusun elemen secara horizontal di tengah */
+    }
+
+    /* Menyesuaikan bubble tengah */
+    .center-bubble {
+        width: 90% !important; /* Mengurangi lebar bubble tengah agar sesuai dengan layar kecil */
+        max-width: 600px !important; /* Menambahkan max-width agar bubble tidak terlalu besar */
+        height: auto !important; /* Sesuaikan tinggi agar bubble tidak terlalu besar */
+        top: -170px !important; /* Menurunkan posisi bubble tengah lebih jauh agar tidak menutupi judul */
+        margin-bottom: 700px !important; /* Menambahkan jarak bawah agar bubble tengah tidak tumpang tindih */
+        padding: 20px !important;
+        z-index: 1 !important; /* Pastikan bubble tengah tetap di atas dua bubble lainnya */
+        box-sizing: border-box !important; /* Memastikan padding dan margin dihitung dengan benar */
+    }
+   
+    /* Menghilangkan garis pemisah pada tampilan mobile */
+    .divider {
+        display: none; /* Menyembunyikan garis pemisah pada tampilan mobile */
+    }
+}
+
+/* Responsif untuk tampilan ponsel kecil */
+@media (max-width: 480px) {
+    .services h1 {
+        font-size: 28px; /* Menyesuaikan ukuran font judul pada layar kecil */
+    }
+
+    .service-item h2 {
+        font-size: 20px; /* Menyesuaikan ukuran font subjudul pada layar kecil */
+    }
+
+    .service-item p {
+        font-size: 14px; /* Menyesuaikan ukuran font deskripsi pada layar kecil */
+    }
+
+    .center-bubble {
+        width: 90%; /* Mengurangi lebar bubble tengah untuk ponsel lebih kecil */
+        max-width: 400px; /* Membatasi lebar agar lebih pas pada ponsel kecil */
+        top: 80px; /* Menurunkan posisi bubble tengah lebih jauh pada ponsel kecil */
+        margin-bottom: 50px;
+        padding: 20px; /* Memberikan cukup ruang di dalam bubble */
+    }
+    .divider {
+        display: none;
+    }
+    .service-item {
+        width: 90%; /* Membuat lebar elemen lebih kecil agar pas di layar kecil */
+        height: auto; /* Mengatur tinggi sesuai konten */
+        margin: 0 auto; /* Menyusun elemen secara horizontal di tengah */
+    }
+    
+}
+
+/* Styling untuk daftar layanan */
+.services-list {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services-list h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #0077C8;
+    margin-bottom: 40px;
+}
+
+/* Styling untuk item layanan */
+.service-item {
+    background-color: #84C7F2; /* Warna latar belakang biru muda */
+    display: flex;
+    justify-content: flex-start; /* Menyusun gambar di kiri dan teks di kanan */
+    align-items: center;
+    gap: 20px; /* Memberikan jarak antara gambar dan teks */
+    margin-bottom: 30px; /* Menambah jarak antara item layanan */
+    border-radius: 10px; /* Membuat sudut melengkung */
+    padding: 40px;
+}
+
+/* Styling untuk teks dalam .service-item */
+.service-info {
+    flex: 1;
+    text-align: left;
+}
+
+.service-info h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.service-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Styling untuk gambar layanan */
+.service-image {
+    flex: 0 0 auto; /* Menetapkan ukuran tetap untuk gambar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-image img {
+    width: 40px;  /* Menyesuaikan ukuran gambar lebih besar dari subjudul */
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10px; /* Membuat gambar berbentuk bulat */
+    margin-top: -485px; /* Menambahkan margin negatif untuk menggeser gambar ke atas */
+}
+
+/* Responsif untuk tampilan mobile */
+@media (max-width: 768px) {
+    .service-item {
+        flex-direction: column; /* Menyusun gambar dan teks secara vertikal pada perangkat kecil */
+        text-align: center; /* Menyusun teks agar rata tengah */
+        padding: 20px; /* Memberikan jarak di dalam item layanan */
+    }
+
+    /* Ukuran gambar pada layanan */
+  /* Gambar utama/logo di bagian atas */
+.service-item > .service-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Gambar di bawah deskripsi */
+.service-detail-img {
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+}
+
+/* Garis pemisah antar layanan */
+.service-divider {
+    border: 0;
+    height: 3px;
+    background-color: #7094F0; /* Warna biru sesuai dengan desain */
+    margin: 27px 0; /* Menambahkan ruang di atas dan bawah garis */
+}
+/* Gambar tambahan di bawah deskripsi layanan */
+
+
+.service-detail-img {
+    display: block;
+    margin: 20px 0 0 0; /* kiri di desktop */
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
